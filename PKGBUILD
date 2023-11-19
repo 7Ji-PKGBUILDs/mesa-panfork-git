@@ -14,8 +14,8 @@
 
 pkgname=mesa-panfork-git
 pkgdesc="Libgl & gbm with panfrost for Mali G610"
-pkgver=r163343.3504c9b1b31
-pkgrel=4
+pkgver=r164484.120202c6757
+pkgrel=1
 arch=('aarch64' 'armhf')
 makedepends=('meson' 'python-mako' 'bison' 'flex' 'cmake'
               'libxfixes' 'libxxf86vm' 'lm_sensors' 'libxshmfence' 'wayland-protocols' 'libdrm' 'libxrandr' 'libglvnd')
