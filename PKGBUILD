@@ -13,21 +13,19 @@
 #  - enable lto for aarch64
 
 pkgname=mesa-panfork-git
-pkgdesc="Libgl & gbm with panfrost for Mali G610"
+pkgdesc="Libgl & gbm with panfrost for Mali G610 from icecream95"
 pkgver=r164484.120202c6757
 pkgrel=2
 arch=('aarch64' 'armhf')
 makedepends=('meson' 'python-mako' 'bison' 'flex' 'cmake'
               'libxfixes' 'libxxf86vm' 'lm_sensors' 'libxshmfence' 'wayland-protocols' 'libdrm' 'libxrandr' 'libglvnd')
-url="https://gitlab.com/panfork/mesa"
+url="https://gitlab.com/hbiyik/mesa"
 license=('custom')
 options=('!lto')
-source=("mesa::git+https://gitlab.com/panfork/mesa.git"
-        LICENSE
-        '001-disable_native_fences.patch')
+source=("mesa::git+https://github.com/hbiyik/mesa.git#branch=panfork"
+        LICENSE)
 sha512sums=('SKIP'
-            'f9f0d0ccf166fe6cb684478b6f1e1ab1f2850431c06aa041738563eb1808a004e52cdec823c103c9e180f03ffc083e95974d291353f0220fe52ae6d4897fecc7'
-            'ce4a0eb414171e273583f366e586cfa0a31b851703ce423355956ec00654c838909d169f109ebaf83c7e0d551e66d0e0e68ce2011b33d6fdb944714efc8fff5b')
+            'f9f0d0ccf166fe6cb684478b6f1e1ab1f2850431c06aa041738563eb1808a004e52cdec823c103c9e180f03ffc083e95974d291353f0220fe52ae6d4897fecc7')
 
 validpgpkeys=('8703B6700E7EE06D7A39B8D6EDAE37B02CEB490D'  # Emil Velikov <emil.l.velikov@gmail.com>
               '946D09B5E4C9845E63075FF1D961C596A7203456'  # Andres Gomez <tanty@igalia.com>
@@ -35,11 +33,6 @@ validpgpkeys=('8703B6700E7EE06D7A39B8D6EDAE37B02CEB490D'  # Emil Velikov <emil.l
               'A5CC9FEC93F2F837CB044912336909B6B25FADFA'  # Juan A. Suarez Romero <jasuarez@igalia.com>
               '71C4B75620BC75708B4BDB254C95FAAB3EB073EC'  # Dylan Baker <dylan@pnwbakers.com>
               '57551DE15B968F6341C248F68D8E31AFC32428A6') # Eric Engestrom <eric@engestrom.ch>
-
-prepare() {
-  cd mesa
-  patch -p1 -N -i ../001-disable_native_fences.patch
-}
 
 pkgver() {
   cd mesa
