@@ -36,10 +36,10 @@ validpgpkeys=('8703B6700E7EE06D7A39B8D6EDAE37B02CEB490D'  # Emil Velikov <emil.l
 
 pkgver() {
   cd mesa
-  ( set -o pipefail
-    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  )
+  local _ver
+  _ver=$(<VERSION)
+  _ver=${_ver//-/.}
+  printf "%s.r%s.%s" $_ver "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
