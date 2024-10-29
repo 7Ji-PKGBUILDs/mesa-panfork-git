@@ -43,7 +43,7 @@ pkgver() {
 }
 
 build() {
-  arch-meson mesa build \
+  arch-meson --reconfigure mesa build \
     -Dgallium-drivers=panfrost \
     -Dvulkan-drivers= \
     -Ddri3=enabled \
